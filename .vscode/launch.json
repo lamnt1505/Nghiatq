@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DuAnTotNgiepApplication<Du_An_Tot_Ngiep>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.poly.Du_An_Tot_Ngiep.DuAnTotNgiepApplication",
+            "projectName": "Du_An_Tot_Ngiep",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
