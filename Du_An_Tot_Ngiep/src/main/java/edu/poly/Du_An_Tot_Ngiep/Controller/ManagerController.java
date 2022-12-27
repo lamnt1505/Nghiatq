@@ -437,9 +437,10 @@ public class ManagerController {
 	@GetMapping("/manager/order")
 	public String listOrder(ModelMap model, @CookieValue(value = "accountuser", required = false) String username,
 			HttpServletRequest request, HttpServletResponse response) {
+		//tạo mới 1 cookie 
 		Cookie[] cookies = request.getCookies(); 
-		if (cookies != null) {
-			for (int i = 0; i < cookies.length; ++i) {
+		if (cookies != null) {//kiểm tra cookie
+			for (int i = 0; i < cookies.length; ++i) {//sử dụng vòng lặp for để duyệt qua cookie
 				if (cookies[i].getName().equals("accountuser")) {
 					User user = this.userService.findByPhone(cookies[i].getValue()).get();
 					//sử dụng userService lấy tt người đăng nhập
@@ -448,10 +449,13 @@ public class ManagerController {
 					model.addAttribute("fullname", user.getFullname());
 					model.addAttribute("image", user.getImageBase64());
 					//hiển thị danh sách hóa đơn
-					//sử dụng th
+					//sd orderservice gọi đến phương thức tìm tất cả hóa đơn(listInvoice())
 					List<Invoice> list = this.oders.listInvoice();
 					//đưa các giá trị vào model
+					//gọi pt list trong List<Invoice> list = this.oders.listInvoice();
+					//trả về listOrder từ listOrder gọi qua thuộc tính th:each="order : ${listOrder}" bên html
 					model.addAttribute("listOrder", list);
+					//trả về trang order
 					return "manager/order/order";
 				}
 			}
@@ -488,7 +492,7 @@ public class ManagerController {
 						productorder.add(odrProduct);
 
 					}
-					//đưa các giá trị vào model
+					//từ phương thức productorder gọi qua thuộc tính <tr th:each="order : ${listOrderDetail}">
 					model.addAttribute("listOrderDetail", productorder);
 					//trả về trang orderdetail
 					return "manager/order/orderDetail";

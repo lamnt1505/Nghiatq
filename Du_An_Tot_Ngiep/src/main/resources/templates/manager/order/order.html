@@ -55,6 +55,8 @@
 									<p class="card-description"></p>
 									<!--sử dụng Modal plugin phương thức JavaScript-->
 									<!--hiển thị dialog duyệt trạng thái đơn hàng-->
+									<!--sử dụng pt id="exampleModal-3" gọi đến data-target="#exampleModal-3" 
+									khi nhấn nút "duyệt" sẽ hiển thị trạng thái form dialog-->
 									<div class="modal fade" id="exampleModal-3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-3" 
 										aria-hidden="true" style="display: none;">
 										<div class="modal-dialog modal-sm" role="document">
@@ -67,7 +69,10 @@
 												</div>
 												<div class="modal-body">
 													<div class="form-group text-center">
+											<!--sử dụng phương thức select của html cho value Chờ duyệt,Hoàn thành,Đã hủy --> 
+											<!--gọi đến các name-->
 														<select class="form-control optionorder">
+															<!--sử dụng phương thức optionorder trong (order.js) để thay đổi trạng thái-->
 															<option  selected value="Chờ duyệt" name="choduyet">Chờ duyệt</option>
 															<option  value="Hoàn thành" name="hoanthanh">Hoàn thành</option>
 															<option  value="Đã hủy"name="dahuy">Đã hủy</option>
@@ -75,13 +80,14 @@
 													</div>
 												</div>
 												<div class="modal-footer">
+													<!--sử dụng pt (submitstatus) gọi vào bên pt bên trong order.js-->
 													<button type="button" class="btn btn-success submitstatus">Duyệt</button>
 													<button type="button" class="btn btn-light" data-dismiss="modal">Thoát</button>
 												</div>
 											</div>
 										</div>
 									</div>
-
+									<!--sử dụng Modal plugin phương thức JavaScript-->					
 									<table id="dataTable-listProduct" class="table table-hover">
 										<thead>
 											<tr>
@@ -111,6 +117,9 @@
 												</td>
 												<td th:text="${#numbers.formatCurrency(order.total)}"></td>
 												<td>
+													<!--sử dụng pt editmodal gọi vào bên pt bên trong order.js-->
+													<!--khi nhấn nút duyệt sẽ gọi vào modal dialog trong pt đó có data-target="#exampleModal-3"
+														gọi từ id="exampleModalLabel-3"-->
 													<button th:attr="data-orderid=${order.invoiceId}" type="button" class="btn btn-primary editmodal" 
 														data-toggle="modal" data-target="#exampleModal-3">
 														Duyệt
@@ -148,7 +157,8 @@
 	<script th:src="@{/assets/vendors/datatables/dataTables.bootstrap4.js}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.5.3/dist/sweetalert2.all.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-	<!--bộ lọc filter-->
+	
+	<!--bộ lọc -->
 	<script type="text/javascript">
 		//jQuery sử dụng để lặp qua từng hàng của bảng
 		$(document).ready(function(){
@@ -162,6 +172,7 @@
 		  });
 		});
 	</script>
+	<!--filter-->
 	<script src="../js/oder.js"></script>
 </body>
 </html>

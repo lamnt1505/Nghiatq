@@ -74,7 +74,7 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
     @Query(value = "select * from Invoice where invoice_id = ?", nativeQuery = true)
     public Invoice findByIdInvoice(int idInvoice);
 	
-	//sử dụng 
+	
     @Query(value = "select * from Invoice where customer_id = ?", nativeQuery = true)
     List<Invoice>  findInvoiceByUser(int iduser);
 

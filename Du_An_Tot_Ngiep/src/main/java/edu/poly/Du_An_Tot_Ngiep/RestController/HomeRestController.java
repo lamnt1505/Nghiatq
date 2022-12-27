@@ -245,7 +245,7 @@ public class HomeRestController {
 		// tìm product có số lượng nhỏ hơn số lượng đặt hàng
 		for (InvoiceDetail detail : acceptInv.getDetails()) {
 			Imports oldProduct = importService.findQuatityProduct(detail.getProduct().getIdProduct());
-			
+			//gọi pt importService tìm theo số lượng import theo product lấy product và id 
 			//check tồn tại trong kho
 			if (oldProduct == null) {
 				System.out.println("Return -1");

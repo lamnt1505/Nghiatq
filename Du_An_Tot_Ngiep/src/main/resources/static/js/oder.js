@@ -2,16 +2,16 @@
 $(document).ready(function() {
 
     var orderid =0;
-
+    //biến chỉnh sửa status
     $(".editmodal").click(function(e) {
-        e.preventDefault();//ngăn sự kiện xảy ra
+        e.preventDefault();//phương thức sẽ ngăn không cho liên kết link
 
         var status = $(this).parents('tr').find('.status').text();
         orderid = $(this).data('orderid');
 
         console.log(status);//show ra giá trị của biến
-
-        $(".optionorder").val(status).change();
+        
+        $(".optionorder").val(status).change();//biến chỉnh sửa trạng thái của đơn hàng
     });
 
     $(".submitstatus").click(function(e) {
@@ -21,13 +21,16 @@ $(document).ready(function() {
         console.log(newstatus);//show ra giá trị của biến
         console.log(orderid);//show ra giá trị của biến
 
-        $.post("/updatestatus",{//pt post
+        $.post("/updatestatus",{//đường dẫn URL dẫn đến pt post trong HomeRestController
             "orderid":orderid,
             "status":newstatus}
             )
                 .done(function(data,status) {
+                    //sử dụng var tham chiếu đến số lượng
                     var quantity = parseInt(data);
+                    //sd parseInt để trả về 1 số nguyên
                     console.log(quantity);
+                    //show ra giá trị của biến (số lượng)
                     if (quantity==0) {//nếu sl = 0 đưa ra tb
                         Swal.fire({//sử dụng hộp thoại SweetAlert đưa ra tb 
                               icon: 'error',
@@ -59,6 +62,5 @@ $(document).ready(function() {
                         window.location.reload();// tải lại url hiện tại
                     }, 2000);
                 });
-
     });
 });

@@ -18,7 +18,6 @@ public interface OrdersService {
 
 	<S extends Invoice> S save(S entity);
 
-
 	Invoice findByIdInvoice(int idInvoice);
 
 

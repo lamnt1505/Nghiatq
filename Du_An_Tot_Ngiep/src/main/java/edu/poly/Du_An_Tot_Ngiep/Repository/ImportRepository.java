@@ -15,7 +15,7 @@ public interface ImportRepository extends JpaRepository<Imports, Integer> {
 
 	@Query(value = "select * from imports where id_import = ?", nativeQuery = true)
 	public Imports findByIdImport(int idImport);
-	
+	//truy vấn đến số lượng theo id
 	@Query(value = "select imports.* from imports where imports.id_product=?", nativeQuery = true)
 	Imports findQuatityProduct(int idProduct);
 
