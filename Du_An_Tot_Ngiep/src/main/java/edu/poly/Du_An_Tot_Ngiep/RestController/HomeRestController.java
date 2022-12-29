@@ -279,5 +279,4 @@ public class HomeRestController {
 		//trả về 1
 		return "1";
 	}
-
 }
