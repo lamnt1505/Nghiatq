@@ -53,10 +53,10 @@
 								<div class="card-body">
 									<h4 class="card-title">Danh Sách Hóa Đơn</h4>
 									<p class="card-description"></p>
-									<!--sử dụng Modal plugin phương thức JavaScript-->
-									<!--hiển thị dialog duyệt trạng thái đơn hàng-->
-									<!--sử dụng pt id="exampleModal-3" gọi đến data-target="#exampleModal-3" 
-									khi nhấn nút "duyệt" sẽ hiển thị trạng thái form dialog-->
+										<!--sử dụng Modal plugin phương thức JavaScript-->
+										<!--hiển thị dialog duyệt trạng thái đơn hàng-->
+										<!--sử dụng pt id="exampleModal-3" gọi đến data-target="#exampleModal-3" 
+										khi nhấn nút "duyệt" sẽ hiển thị trạng thái form dialog-->
 									<div class="modal fade" id="exampleModal-3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-3" 
 										aria-hidden="true" style="display: none;">
 										<div class="modal-dialog modal-sm" role="document">
@@ -69,8 +69,8 @@
 												</div>
 												<div class="modal-body">
 													<div class="form-group text-center">
-											<!--sử dụng phương thức select của html cho value Chờ duyệt,Hoàn thành,Đã hủy --> 
-											<!--gọi đến các name-->
+												<!--sử dụng phương thức select của html cho value Chờ duyệt,Hoàn thành,Đã hủy --> 
+												<!--gọi đến các name-->
 														<select class="form-control optionorder">
 															<!--sử dụng phương thức optionorder trong (order.js) để thay đổi trạng thái-->
 															<option  selected value="Chờ duyệt" name="choduyet">Chờ duyệt</option>
@@ -92,7 +92,7 @@
 										<thead>
 											<tr>
 												<th>Mã Hóa Đơn</th>
-												 <th>SĐT khách hàng</th> 
+												<th>SĐT khách hàng</th> 
 												<th>Ngày đặt hàng</th>
 												<th>Trạng Thái</th>
 												<th>Tổng Tiền</th>
@@ -104,8 +104,8 @@
 												<!--sử dụng th:text để hiển thị mô tả từng dòng của list box-->
 											<tr th:each="order : ${listOrder}">
 												<td>
-													<!--sử dụng pt nối chuỗi liên kết đến action manager/orderDetail controller
-													 sử dụng th:text để lấy dữ liệu hóa đơn-->
+													<!-- sử dụng pt nối chuỗi liên kết đến action manager/orderDetail controller
+													 sử dụng th:text để lấy dữ liệu hóa đơn -->
 												  	 <a class="btn btn-inverse-success btn-fw" 
 												   		th:href="@{'/manager/orderDetail/'+${order.invoiceId}}" 
 														th:text="${order.invoiceId}"> 

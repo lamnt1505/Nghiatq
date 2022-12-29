@@ -77,11 +77,12 @@
 											<!--sử dụng th:each để duyệt mảng-->
 											<!--sử dụng th:text để hiển thị mô tả từng dòng của list box-->
 											<tr th:each="order : ${listOrderDetail}">
-											<td class="image-prod"><img id="img"
+											<td class="image-prod">
+												<img id="img"
 												th:src="'data:image/png;base64,' + ${order.getImageBase64()}"
-												alt="Colorlib Template"></td>
-											<td th:text="${order.name}">
+												alt="Colorlib Template">
 											</td>
+											<td th:text="${order.name}"></td>
 											<td class="price" th:text="${#numbers.formatCurrency(order.price)}"></td>
 											<td class="price" th:text="${order.amount}"></td>
 											<td class="total" th:text="${order.price*order.amount}"></td>

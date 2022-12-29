@@ -141,8 +141,10 @@ public class HomeRestController {
 		// nếu số lượng nhỏ hơn 0
 		if (quantity < 0) {
 			return "0";
-		} else if (quantity == 0) {
+			//trả về 0
+		} else if (quantity == 0) {//kiểm tra nếu sl = 0
 			List<Product> list = (List<Product>) session.getAttribute("cart");
+
 			for (int i = 0; i < list.size(); i++) {
 				if (idProduct == list.get(i).getIdProduct()) {
 					list.remove(i);
@@ -265,15 +267,16 @@ public class HomeRestController {
 			// update quantity
 			for (InvoiceDetail detail : acceptInv.getDetails()) {
 				Imports oldProduct = importService.findQuatityProduct(detail.getProduct().getIdProduct());
-
+				//gọi pt importService tìm theo số lượng import theo product lấy product và id 
 				detail = orderDetailsServices.findInvoiceDetail(detail.getDetailId());
 				oldProduct.setQuantity(oldProduct.getQuantity() - detail.getAmount());
-
+				//sử dụng pt save gọi từ import service
 				importService.save(oldProduct);
 			}
 		}
-
+		//kèm theo pt save của order lwuu hóa đơn
 		ordersService.save(acceptInv);
+		//trả về 1
 		return "1";
 	}
 
