@@ -62,7 +62,6 @@
 										<!--sử dụng th:href liên kết đến action listorder-->
 								 		<a class="btn btn-inverse-success btn-fw" th:href="@{/manager/order}">Quay Về Hóa Đơn</a> 
 									</p>
-
 									<table id="dataTable-listProduct" class="table table-hover">
 										<thead>
 											<tr>
@@ -76,6 +75,8 @@
 										<tbody id="myTable">
 											<!--sử dụng th:each để duyệt mảng-->
 											<!--sử dụng th:text để hiển thị mô tả từng dòng của list box-->
+											<!--từ phương thức productorder gọi qua thuộc tính <tr th:each="order : ${listOrderDetail}">-->
+											<!--từ listOrderDetail gọi qua order trả về các tên class-->
 											<tr th:each="order : ${listOrderDetail}">
 											<td class="image-prod">
 												<img id="img"
