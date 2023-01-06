@@ -152,6 +152,7 @@ public class HomeRestController {
 					return "2";
 				}
 			}
+			
 		} else if (session.getAttribute("cart") != null) {
 			List<Product> list = (List<Product>) session.getAttribute("cart");
 			for (int i = 0; i < list.size(); i++) {
