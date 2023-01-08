@@ -251,13 +251,13 @@ public class HomeRestController {
 			//gọi pt importService tìm theo số lượng import theo product lấy product và id 
 			//check tồn tại trong kho
 			if (oldProduct == null) {
-				System.out.println("Return -1");
+				System.out.println("no order");
 				return "-2";
 			}
 
 			// so sánh oldProduct.amount trong kho và InvoiceDetail.amount
 			if (oldProduct.getQuantity() < detail.getAmount()) {
-				System.out.println("Return -1");
+				System.out.println("no order");
 				return "-1";
 			}
 		}
@@ -278,6 +278,6 @@ public class HomeRestController {
 		//kèm theo pt save của order lwuu hóa đơn
 		ordersService.save(acceptInv);
 		//trả về 1
-		return "1";
+		return "no order";
 	}
 }
